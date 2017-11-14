@@ -12,8 +12,10 @@ if [ ! -z ${EXECUTE_LARAVEL_OPTIMIZATION+x} ]; then
     php artisan vendor:publish --tag=public
 fi
 
-if [ ! -z ${EXECUTE_MIGRATIONS+x} ]; then
+if [ ! -z ${EXECUTE_REFRESH_MIGRATIONS+x} ]; then
     php artisan migrate:refresh --seed
+else
+    php artisan migrate --force
 fi
 
 exec "$@"
