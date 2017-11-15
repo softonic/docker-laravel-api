@@ -14,7 +14,7 @@ fi
 
 if [ ! -z ${EXECUTE_REFRESH_MIGRATIONS+x} ]; then
     php artisan migrate:refresh --seed
-elif [ -z ${DO_NOT_EXECUTE_MIGRATIONS+x} ]; then
+else
     php artisan migrate --force
 fi
 
